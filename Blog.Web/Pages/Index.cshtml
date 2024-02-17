@@ -6,38 +6,38 @@
 
 <div class="container">
     <h1>Blog Page</h1>
-</div>
-
-<table class="w-100 table-bordered bg-success">
-    <thead>
-    <tr class="text-center">
-        <td>Id</td>
-        <td>Title</td>
-        <td>Contents</td>
-        <td>Image Url</td>
-        <td>Published Date</td>
-    </tr>
-    </thead>
-    <tbody>
-    @if (Model.HasRecords)
-    {
-        @foreach (var item in Model.Blogs)
+    
+    <table class="w-100 table-bordered mb-5">
+        <thead>
+        <tr class="text-center">
+            <td>Id</td>
+            <td>Title</td>
+            <td>Contents</td>
+            <td>Image Url</td>
+            <td>Published Date</td>
+        </tr>
+        </thead>
+        <tbody>
+        @if (Model.HasRecords)
         {
-            <tr>
-                <td>@item.Guid</td>
-                <td>@item.Title</td>
-                <td>@item.Contents</td>
-                <td>@item.ImageUrl</td>
-                <td>@item.PublishedDate.ToShortDateString()</td>
+            @foreach (var item in Model.Blogs)
+            {
+                <tr>
+                    <td>@item.Guid</td>
+                    <td>@item.Title</td>
+                    <td>@item.Contents</td>
+                    <td>@item.ImageUrl</td>
+                    <td>@item.PublishedDate.ToShortDateString()</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr class="text-center">
+                <td colspan="5">No Data Found</td>
             </tr>
         }
-    }
-    else
-    {
-        <tr class="text-center">
-            <td colspan="5">No Data Found</td>
-        </tr>
-    }
+        </tbody>
+    </table>
+</div>
 
-    </tbody>
-</table>

@@ -10,7 +10,7 @@ public class IndexModel : PageModel
     private readonly ILogger<IndexModel> _logger;
     private readonly BlogDbContext _dbContext;
     
-    [BindProperty]
+
     public List<BlogViewModel> Blogs { get; set; }
 
     public bool HasRecords
